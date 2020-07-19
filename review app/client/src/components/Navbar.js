@@ -1,11 +1,22 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
+import Reviews from './Reviews'
 
 class Landing extends Component {
   logOut(e) {
     e.preventDefault()
     localStorage.removeItem('usertoken')
     this.props.history.push(`/`)
+  }
+  reviews(e){
+    e.preventDefault()
+    return (
+      <div>
+          Movie Review
+            </div>
+  
+  )
+
   }
 
   render() {
@@ -21,8 +32,30 @@ class Landing extends Component {
             Register
           </Link>
         </li>
+        
       </ul>
     )
+    const revLink = (
+      <ul className="navbar-nav">
+    <li className="nav-item">
+    <a href="" onClick={this.reviews.bind(this)} className="nav-link">
+    <Link to="/reviews" className="nav-link">
+      Reviews
+      </Link>
+    </a>
+  </li>
+  </ul>)
+
+const adminLink = (
+  <ul className="navbar-nav">
+<li className="nav-item">
+<a href="" onClick={this.reviews.bind(this)} className="nav-link">
+<Link to="/adminmenu" className="nav-link">
+  Admin Menu
+  </Link>
+</a>
+</li>
+</ul>)
 
     const userLink = (
       <ul className="navbar-nav">
@@ -36,6 +69,7 @@ class Landing extends Component {
             Logout
           </a>
         </li>
+        
       </ul>
     )
 
@@ -64,6 +98,8 @@ class Landing extends Component {
               </Link>
             </li>
           </ul>
+          {revLink}
+          {adminLink}
           {localStorage.usertoken ? userLink : loginRegLink}
         </div>
       </nav>

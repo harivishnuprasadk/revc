@@ -6,6 +6,8 @@ import Landing from './components/Landing'
 import Login from './components/Login'
 import Register from './components/Register'
 import Profile from './components/Profile'
+import Reviews from './components/Reviews'
+import AdminMenu from './components/AdminMenu'
 
 class App extends Component {
   render() {
@@ -18,6 +20,9 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/reviews" component={Reviews} />
+            <Route exact path="/adminmenu" component={AdminMenu} />
+
           </div>
         </div>
       </Router>
